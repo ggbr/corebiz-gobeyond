@@ -2,11 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
+use App\Models\Aluno;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class APIController extends Controller
 {
+
+    public function showHistorico(){
+
+        $aluno  =  new Aluno();
+
+        
+        if($aluno->getStatus() != Status::STATUS_EXPULSO){
+            $aluno->setStatus(Status::STATUS_NINJA);
+        }
+
+        if($aluno->getStatus() != 4){
+            $aluno->setStatus(6);
+        }
+
+        dd($aluno);
+
+        //return Ads::all();
+    }
+
     public function showMessage()
     {
         $response = [

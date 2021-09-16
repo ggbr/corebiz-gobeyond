@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //? Rota de Teste retornando um array.
-Route::get('/message','APIController@showMessage')->middleware('iphone');
+Route::get('/message','APIController@showMessage');
 
 //? Rota de teste action.
 Route::post('/action','APIController@showAction');
+
+Route::get('/historico',[APIController::class, 'showHistorico']);
+
 
 //? Rotas para o controller Pessoas.
 
